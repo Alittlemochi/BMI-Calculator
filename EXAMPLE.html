@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>BMI Calculator</title>
+	</head>
+	<style media="screen">
+		body{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: sans-serif;
+			background-image: url("fondo.jpg");
+			min-height: 100vh;
+		}
+        
+        div.relative {
+			width: 370px;
+			position: absolute;
+			top: 50%;
+			left: 25%;
+			background-color: #fff;  
+			transform: translate(-50%, -50%);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 1px 1px 20px #104361;
+		} 
+
+      div.absolute {
+			width: 380px;
+			height: 430px;
+			position: absolute;
+			top: 50%;
+			left: 75%;
+			background-color: #fff;  
+			transform: translate(-50%, -50%);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 1px 1px 20px #104361;
+      }
+		
+		h2{
+			font-family: "Monaco", monospace;
+			font-size: 25px;
+			font-weight: 600;
+		}
+		.text{
+			text-align: left;
+			margin-left: 150px;
+		}
+		#w, #h{
+			color: #222f3e;
+			text-align: center;
+			font-size: 20px;
+			font-weight: 500;
+			outline: none;
+			border: none;
+			background: none;
+			border-bottom: 1px solid #341f97;
+			width: 300px;
+		}
+			#w:focus, #h:focus{
+				border-bottom: 2px solid #341f97;
+				width: 300px;
+				transition: 0.5s;
+			}
+			#result{
+				color: #341f97;
+			}
+			#btn{
+				font-family: inherit;
+				margin-top: 10px;
+				border: none;
+				color: #fff;
+				background-color: #366e8f;
+				width: 150px;
+				padding: 10px;
+				border-radius: 30px;
+				outline: none;
+				cursor: pointer;
+			}
+			#btn:hover{
+				box-shadow: 1px 1px 10px #341f97;
+			}
+			#info{
+				font-size: 12px;
+				font-family: inherit;
+			}
+	</style>
+	<script type="text/javascript">
+		
+window.onload = () => {
+    let button = document.querySelector("#btn");
+  
+    // Function for calculating BMI
+    button.addEventListener("click", calculateBMI);
+};
+  
+function calculateBMI() {
+  
+    let height = parseInt(document
+            .querySelector("#h").value);
+  
+    let weight = parseInt(document
+            .querySelector("#w").value);
+  
+    let result = document.querySelector("#result");
+
+    if (height === "" || isNaN(height)) 
+        result.innerHTML = "Provide a valid Height!";
+  
+    else if (weight === "" || isNaN(weight)) 
+        result.innerHTML = "Provide a valid Weight!";
+  
+    // If both input is valid, calculate the bmi
+    else {
+  
+        // Fixing upto 2 decimal places
+        let bmi = (weight / ((height * height) 
+                            / 10000)).toFixed(2);
+  
+        // Dividing as per the bmi conditions
+        if (bmi < 16) result.innerHTML =
+            `Very Severely underweight : <span>${bmi}</span>`;
+  
+        else if (bmi >= 16 && bmi <= 16.99) 
+            result.innerHTML = 
+                `Severely underweight : <span>${bmi}</span>`;
+				
+		else if (bmi >= 17 && bmi <= 18.49) 
+            result.innerHTML = 
+                `Underweight : <span>${bmi}</span>`;
+				
+		else if (bmi >= 18.5 && bmi <= 24.99) 
+            result.innerHTML = 
+                `Normal : <span>${bmi}</span>`;
+		
+		else if (bmi >= 25 && bmi <= 29.99) 
+            result.innerHTML = 
+                `Overweight : <span>${bmi}</span>`;
+				
+		else if (bmi >= 30 && bmi <= 34.99) 
+            result.innerHTML = 
+                `Moderately obese : <span>${bmi}</span>`;
+		
+		else if (bmi >= 35 && bmi <= 39.99) 
+            result.innerHTML = 
+                `Severely obese : <span>${bmi}</span>`;
+				
+        else result.innerHTML =
+            `Very severely obese : <span>${bmi}</span>`;
+    }
+}
+	</script>
+	
+	<body>
+		<div class="relative">
+			<h2>BMI CALCULATOR</h2>
+			<p class="text">Height</p>
+			<input type="text" id="h">
+			<p class="text">Weight</p>
+			<input type="text" id="w">
+			<div id="result"></div>
+			<button id="btn">Calculate</button>
+
+			<p id="info">Please enter height [cm] and weight [kg]</p>
+		</div>
+		
+        <div class="absolute">
+                	<h2>BODY MASS INDEX</h2>
+					<img src="tabla.jpg" width="340" height="360">
+        </div>
+		
+
+	</body>
+</html>
