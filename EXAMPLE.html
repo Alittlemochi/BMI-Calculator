@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<title>BMI Calculator</title>
 	</head>
 	<style media="screen">
@@ -19,7 +20,7 @@
 			position: absolute;
 			top: 50%;
 			left: 25%;
-			background-color: #fff;  
+			background-color: #e8c6c5;  
 			transform: translate(-50%, -50%);
 			padding: 20px;
 			border-radius: 10px;
@@ -28,11 +29,11 @@
 
       div.absolute {
 			width: 380px;
-			height: 430px;
+			height: 440px;
 			position: absolute;
 			top: 50%;
 			left: 75%;
-			background-color: #fff;  
+			background-color: #e8c6c5;  
 			transform: translate(-50%, -50%);
 			padding: 20px;
 			border-radius: 10px;
@@ -43,10 +44,13 @@
 			font-family: "Monaco", monospace;
 			font-size: 25px;
 			font-weight: 600;
+			color: #823f3e;
 		}
 		.text{
 			text-align: left;
+			font-family: "Monaco", monospace;
 			margin-left: 150px;
+			color: #823f3e;
 		}
 		#w, #h{
 			color: #222f3e;
@@ -65,10 +69,11 @@
 				transition: 0.5s;
 			}
 			#result{
-				color: #341f97;
+				color: white;
+				text-shadow: 1px  white;
 			}
 			#btn{
-				font-family: inherit;
+			font-family: "Monaco", monospace;
 				margin-top: 10px;
 				border: none;
 				color: #fff;
@@ -84,7 +89,8 @@
 			}
 			#info{
 				font-size: 12px;
-				font-family: inherit;
+				font-family: "Monaco", monospace;
+				color: #823f3e;
 			}
 	</style>
 	<script type="text/javascript">
@@ -162,13 +168,16 @@ function calculateBMI() {
 			<input type="text" id="w">
 			<div id="result"></div>
 			<button id="btn">Calculate</button>
-
 			<p id="info">Please enter height [cm] and weight [kg]</p>
+			<i class="material-icons">favorite</i>
+			<i class="material-icons">control_point</i>
+			<i class="material-icons">accessibility</i>
+
 		</div>
 		
         <div class="absolute">
-                	<h2>BODY MASS INDEX</h2>
-					<img src="tabla.jpg" width="340" height="360">
+                	<h2>BODY MASS INDEX </h2>
+					<img src="bmi.jpg" width="340" height="360">
         </div>
 		
 
